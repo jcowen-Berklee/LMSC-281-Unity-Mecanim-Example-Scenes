@@ -11,7 +11,7 @@ public class Bazooka : MonoBehaviour {
     public GameObject bullet = null;
     public GameObject spawm = null;
 
-    private bool load = false;
+    private bool load = true;
 
     void OnGUI()
     {
