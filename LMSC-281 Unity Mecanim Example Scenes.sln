@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{EC843F1E-F59A-93D3-B605-36EE2B05E08C}") = "LMSC-281 Unity Mecanim Example Scenes", "Assembly-CSharp.csproj", "{90DEEB3E-89EB-7A20-9EF4-0B06CED59F64}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90DEEB3E-89EB-7A20-9EF4-0B06CED59F64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90DEEB3E-89EB-7A20-9EF4-0B06CED59F64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90DEEB3E-89EB-7A20-9EF4-0B06CED59F64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90DEEB3E-89EB-7A20-9EF4-0B06CED59F64}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
