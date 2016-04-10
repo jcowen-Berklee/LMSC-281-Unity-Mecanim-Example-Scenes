@@ -45,9 +45,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Group Triangle\Level2.cs" />
-     <Compile Include="Assets\Group Triangle\Level3.cs" />
-     <Compile Include="Assets\Group Triangle\Level4.cs" />
+     <Compile Include="Assets\Group Triangle\LoadLevelScripts\Level1.cs" />
+     <Compile Include="Assets\Group Triangle\LoadLevelScripts\Level2.cs" />
+     <Compile Include="Assets\Group Triangle\LoadLevelScripts\Level3.cs" />
+     <Compile Include="Assets\Group Triangle\LoadLevelScripts\Level4.cs" />
+     <Compile Include="Assets\Group Triangle\Music.cs" />
      <Compile Include="Assets\Locomotion\Scripts\Locomotion.cs" />
      <Compile Include="Assets\Scripts\Agent.cs" />
      <Compile Include="Assets\Scripts\AnimatorController_UI.cs" />
