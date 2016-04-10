@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Audio;
 
 public class IdleRunJump : MonoBehaviour {
 
@@ -7,6 +8,9 @@ public class IdleRunJump : MonoBehaviour {
 	protected Animator animator;
 	public float DirectionDampTime = .25f;
 	public bool ApplyGravity = true; 
+
+	public AudioMixerSnapshot stepping;
+	public AudioMixerSnapshot still;
 
 	// Use this for initialization
 	void Start () 
@@ -21,30 +25,32 @@ public class IdleRunJump : MonoBehaviour {
 	void Update () 
 	{
 
-		if (animator)
-		{
-			AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);			
+		if (animator) {
+			AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo (0);			
 
-			if (stateInfo.IsName("Base Layer.Run"))
-			{
-				if (Input.GetButton("Fire1")) animator.SetBool("Jump", true);                
-            }
-			else
-			{
-				animator.SetBool("Jump", false);                
-            }
+			if (stateInfo.IsName ("Base Layer.Run")) {
+				if (Input.GetButton ("Fire1"))
+					animator.SetBool ("Jump", true);                
+			} else {
+				animator.SetBool ("Jump", false);                
+			}
 
-			if(Input.GetButtonDown("Fire2") && animator.layerCount >= 2)
-			{
-				animator.SetBool("Hi", !animator.GetBool("Hi"));
+			if (Input.GetButtonDown ("Fire2") && animator.layerCount >= 2) {
+				animator.SetBool ("Hi", !animator.GetBool ("Hi"));
 			}
 			
 		
-      		float h = Input.GetAxis("Horizontal");
-        	float v = Input.GetAxis("Vertical");
-			
-			animator.SetFloat("Speed", h*h+v*v);
-            animator.SetFloat("Direction", h, DirectionDampTime, Time.deltaTime);	
-		}   		  
+			float h = Input.GetAxis ("Horizontal");
+			float v = Input.GetAxis ("Vertical");
+
+			animator.SetFloat ("Speed", h * h + v * v);
+			animator.SetFloat ("Direction", h, DirectionDampTime, Time.deltaTime);
+		}
+		if (Input.GetKeyDown ("w")) {
+			stepping.TransitionTo (0f);
+		}
+		if (Input.GetKeyUp ("w")) {
+			still.TransitionTo (0f);
+		}
 	}
 }
