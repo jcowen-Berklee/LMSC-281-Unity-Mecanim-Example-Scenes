@@ -11,6 +11,10 @@ public class Bazooka : MonoBehaviour {
     public GameObject bullet = null;
     public GameObject spawm = null;
 
+	//declare private AudioSource variable "bazooka"
+	private AudioSource bazooka;
+
+
     private bool load = true;
 
     void OnGUI()
@@ -24,6 +28,15 @@ public class Bazooka : MonoBehaviour {
 	void Start () 
 	{
 		animator = GetComponent<Animator>();
+	
+		//get the audiosource component that is attached (which has the bazooka.wav sound file loaded into it)
+		bazooka = GetComponent<AudioSource> ();
+
+
+
+
+
+
 	}
 	
 	// Update is called once per frame
@@ -38,13 +51,24 @@ public class Bazooka : MonoBehaviour {
 
             if (Input.GetButton("Fire1") && fire < 0.01 && aim > 0.99)
             {
+				//if the bazooka is fired, play the sound that is stored in the referenced audioSource. 
+				bazooka.Play ();
+			
+
+
                animator.SetFloat("Fire",1);
+
+			
 
                if (bullet != null && spawm != null)
                {
+
+
                    GameObject newBullet = Instantiate(bullet, spawm.transform.position , Quaternion.Euler(0, 0, 0)) as GameObject;
 
                    Rigidbody rb = newBullet.GetComponent<Rigidbody>();
+
+
 
                    if (rb != null)
                    {
