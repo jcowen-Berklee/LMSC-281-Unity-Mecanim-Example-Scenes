@@ -9,7 +9,11 @@ public class Bazooka : MonoBehaviour {
     public GameObject rightHandle = null;
     public GameObject bazoo = null;
     public GameObject bullet = null;
-    public GameObject spawm = null;
+	public GameObject spawm = null;
+
+	public AudioClip[] equipUnequip;
+
+	AudioSource bazookaSound;
 
     private bool load = true;
 
@@ -23,6 +27,7 @@ public class Bazooka : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		bazookaSound = GetComponent<AudioSource>();
 		animator = GetComponent<Animator>();
 	}
 	
@@ -60,8 +65,16 @@ public class Bazooka : MonoBehaviour {
  
             if (Input.GetButton("Fire2"))
             {
-                if (load && aim > 0.99) { load = false; }
-                else if (!load && aim < 0.01) load = true;
+				if (load && aim > 0.99) 
+				{ 
+					load = false; 
+					bazookaSound.PlayOneShot(equipUnequip[0]);
+				}
+				else if (!load && aim < 0.01)
+				{
+					load = true;
+					bazookaSound.PlayOneShot(equipUnequip[1]);
+				}
             }
 
       		float h = Input.GetAxis("Horizontal");
