@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Precision Turning on the Spot.unity
+- path: Assets/Teddy Bear Bazooka.unity
   isLoaded: 1
   isActive: 1
