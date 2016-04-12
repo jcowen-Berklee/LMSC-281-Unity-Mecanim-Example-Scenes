@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Target Match.unity
+- path: Assets/Generic Skeleton Example.unity
   isLoaded: 1
   isActive: 1
