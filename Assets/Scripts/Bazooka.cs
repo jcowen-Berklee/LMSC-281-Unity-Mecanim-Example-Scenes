@@ -1,6 +1,8 @@
-
 using UnityEngine;
 using System.Collections;
+
+//Team X - Implementation by SGossner, MSzymanski, and MBeltran
+//Bazooka firing
 
 public class Bazooka : MonoBehaviour {
 
@@ -10,13 +12,17 @@ public class Bazooka : MonoBehaviour {
     public GameObject rightHandle = null;
     public GameObject bazoo = null;
     public GameObject bullet = null;
-	public GameObject spawm = null;
-
-	public AudioClip[] equipUnequip;
-
-	AudioSource bazookaSound;
+    public GameObject spawm = null;
 
     private bool load = true;
+
+	public AudioClip[] equipUnequip;
+	public AudioClip[] footSteps;
+
+	AudioSource personalSound;
+
+	public float lowPitchRange = 0.75f;
+	public float highPitchRange = 1.25f;
 
     void OnGUI()
     {
@@ -28,7 +34,7 @@ public class Bazooka : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		bazookaSound = GetComponent<AudioSource>();
+		personalSound = GetComponent<AudioSource>();
 		animator = GetComponent<Animator>();
 	}
 	
@@ -51,7 +57,8 @@ public class Bazooka : MonoBehaviour {
                    GameObject newBullet = Instantiate(bullet, spawm.transform.position , Quaternion.Euler(0, 0, 0)) as GameObject;
                     //play bazooka fire sound
                     GetComponent<AudioSource>().Play();
-                    Rigidbody rb = newBullet.GetComponent<Rigidbody>();
+
+                   Rigidbody rb = newBullet.GetComponent<Rigidbody>();
 
                    if (rb != null)
                    {
@@ -67,15 +74,15 @@ public class Bazooka : MonoBehaviour {
  
             if (Input.GetButton("Fire2"))
             {
-				if (load && aim > 0.99) 
+                if (load && aim > 0.99) 
 				{ 
 					load = false; 
-					bazookaSound.PlayOneShot(equipUnequip[0]);
+					personalSound.PlayOneShot(equipUnequip[0]);
 				}
-				else if (!load && aim < 0.01)
+				else if (!load && aim < 0.01)				
 				{
 					load = true;
-					bazookaSound.PlayOneShot(equipUnequip[1]);
+					personalSound.PlayOneShot(equipUnequip[1]);
 				}
             }
 
@@ -137,4 +144,9 @@ public class Bazooka : MonoBehaviour {
             }
         }
     }
+
+	void RunningStep(){
+		personalSound.PlayOneShot(footSteps[Random.Range(0, footSteps.Length)]);
+
+	}
 }

@@ -66,12 +66,8 @@ public class MineBot: MonoBehaviour {
 
 	void Stepping () 
 	{
-		legs.PlayOneShot(servoSteps[count]);
-		count++;
 
-		if (count > servoSteps.Length)
-		{
-			count = count - servoSteps.Length + 1;
-		}
+		legs.PlayOneShot(servoSteps[UnityEngine.Random.Range(0,servoSteps.Length)]);
+
 	}
 }
