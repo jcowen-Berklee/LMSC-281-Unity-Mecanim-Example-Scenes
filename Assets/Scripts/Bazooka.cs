@@ -49,8 +49,9 @@ public class Bazooka : MonoBehaviour {
                if (bullet != null && spawm != null)
                {
                    GameObject newBullet = Instantiate(bullet, spawm.transform.position , Quaternion.Euler(0, 0, 0)) as GameObject;
-
-                   Rigidbody rb = newBullet.GetComponent<Rigidbody>();
+                    //play bazooka fire sound
+                    GetComponent<AudioSource>().Play();
+                    Rigidbody rb = newBullet.GetComponent<Rigidbody>();
 
                    if (rb != null)
                    {
