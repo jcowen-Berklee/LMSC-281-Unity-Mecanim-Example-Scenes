@@ -17,6 +17,7 @@ public class MineBot: MonoBehaviour {
 
 	AudioSource legs;
 
+
 	public float DirectionDampTime = .25f;
 
 	int count;
