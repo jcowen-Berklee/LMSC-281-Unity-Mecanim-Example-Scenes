@@ -5,6 +5,9 @@
 using UnityEngine;
 using System;
 using System.Collections;
+
+//Team X - Implementation by SGossner
+//Bear dying
   
 [RequireComponent(typeof(Animator))]  
 
@@ -75,7 +78,12 @@ public class Bear : MonoBehaviour {
         {
 			var currentState = avatar.GetCurrentAnimatorStateInfo(0);
 			var nextState = avatar.GetNextAnimatorStateInfo(0);
-			if (!currentState.IsName("Base Layer.Dying") && !nextState.IsName("Base Layer.Dying"))
+            //play bear dying sound
+            if (GetComponent<AudioSource>().isPlaying == false)
+            {
+                GetComponent<AudioSource>().Play();
+            }
+            if (!currentState.IsName("Base Layer.Dying") && !nextState.IsName("Base Layer.Dying"))
 				avatar.SetBool("Dying", true);
         }        
     }

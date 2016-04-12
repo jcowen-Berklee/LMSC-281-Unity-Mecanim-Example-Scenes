@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
+//Team X - Implementation by SGossner
+//Bazooka firing
+
 public class Bazooka : MonoBehaviour {
 
 	protected Animator animator;
@@ -43,7 +46,7 @@ public class Bazooka : MonoBehaviour {
                if (bullet != null && spawm != null)
                {
                    GameObject newBullet = Instantiate(bullet, spawm.transform.position , Quaternion.Euler(0, 0, 0)) as GameObject;
-
+                    //play bazooka fire sound
                     GetComponent<AudioSource>().Play();
 
                    Rigidbody rb = newBullet.GetComponent<Rigidbody>();
