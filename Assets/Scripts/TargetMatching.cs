@@ -8,10 +8,16 @@ public class TargetMatching : MonoBehaviour
 	public Transform RightHand;
 	bool hasJumped = false;
 
+	public AudioClip[] climbGrunt;
+	public AudioClip[] climbSigh;
+
+	AudioSource climbingSource;
+
 
 	// Use this for initialization
 	void Start () {
 
+		climbingSource = GetComponent<AudioSource>();
 		animator = GetComponent<Animator>();
 	
 	}
@@ -52,5 +58,17 @@ public class TargetMatching : MonoBehaviour
 			}
 		}
 	
+	}
+
+	void MidClimb ()
+	{
+		climbingSource.PlayOneShot(climbGrunt[Random.Range(0,climbGrunt.Length)]);
+	}
+
+	void HasClimbed ()
+	{
+		int roll = Random.Range(0, 5);
+		if (roll > 2)
+		climbingSource.PlayOneShot(climbSigh[Random.Range(0, climbSigh.Length)]);
 	}
 }
