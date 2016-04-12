@@ -44,6 +44,8 @@ public class Bazooka : MonoBehaviour {
                {
                    GameObject newBullet = Instantiate(bullet, spawm.transform.position , Quaternion.Euler(0, 0, 0)) as GameObject;
 
+                    GetComponent<AudioSource>().Play();
+
                    Rigidbody rb = newBullet.GetComponent<Rigidbody>();
 
                    if (rb != null)
