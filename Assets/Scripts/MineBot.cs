@@ -19,7 +19,7 @@ public class MineBot: MonoBehaviour {
 
 
 	public float DirectionDampTime = .25f;
-
+    public bool step = false;
 	int count;
 
 
@@ -49,6 +49,11 @@ public class MineBot: MonoBehaviour {
 			avatar.SetFloat("Direction", Mathf.Atan2(h,v) * 180.0f / 3.14159f);
 			avatar.SetBool("Jump", j);
 
+            if (step)
+            {
+                Stepping();
+            }
+
 			Rigidbody rigidbody = GetComponent<Rigidbody>();
 
 			if(rigidbody)
@@ -67,8 +72,8 @@ public class MineBot: MonoBehaviour {
 
 	void Stepping () 
 	{
-
-		legs.PlayOneShot(servoSteps[UnityEngine.Random.Range(0,servoSteps.Length)]);
-
+        //play sound of servo step
+        legs.PlayOneShot(servoSteps[UnityEngine.Random.Range(0, servoSteps.Length)]);
+        
 	}
 }
