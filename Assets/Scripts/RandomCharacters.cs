@@ -29,7 +29,7 @@ public class RandomCharacters : MonoBehaviour {
 	{
 		//------Bernard---------Plays random footsepts from the Array
 		steps = GetComponent<AudioSource> ();
-		steps.clip = AudioManager.RandomFootSteps(); 
+		steps.clip = AudioManager.RandomSound(AudioManager.footSteps); 
 		steps.Play ();
 		//------------------------------------------------------
 		

@@ -14,10 +14,11 @@ public class AudioManager : MonoBehaviour {
 		};
 	}
 
-	public static AudioClip RandomFootSteps() {
-		int ran = UnityEngine.Random.Range (0, footSteps.Length);
+	//Plays a random sound from an AudioClip array
+	public static AudioClip RandomSound(AudioClip[] audioArray) {
+		int ran = UnityEngine.Random.Range (0, audioArray.Length);
 
-		return footSteps [ran];
+		return audioArray [ran];
 
 	}
 }
