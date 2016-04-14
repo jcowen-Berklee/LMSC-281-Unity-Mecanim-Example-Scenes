@@ -7,8 +7,11 @@ public class AudioManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		footSteps = new AudioClip[] {Resources.Load<AudioClip>("steps1")};
-		Debug.Log (footSteps[1]);
+		footSteps = new AudioClip[] {
+			Resources.Load<AudioClip>("Audio/SFX/steps1"),
+			Resources.Load<AudioClip>("Audio/SFX/steps2"),
+			Resources.Load<AudioClip>("Audio/SFX/steps3")
+		};
 	}
 
 	public static AudioClip RandomFootSteps() {
