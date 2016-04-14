@@ -20,8 +20,7 @@ public class RandomCharacters : MonoBehaviour {
 	private float DirectionDampTime = .25f;	
 	private Vector3 TargetPosition = new Vector3(0,0,0);
 
-	//------Bernard-----------Initialize the audio array
-	public AudioClip[] footSteps; 
+	//------Bernard-----------Initialize the AudioSource
 	private AudioSource steps;
 	//--------------------------------------------------
 	
@@ -30,8 +29,7 @@ public class RandomCharacters : MonoBehaviour {
 	{
 		//------Bernard---------Plays random footsepts from the Array
 		steps = GetComponent<AudioSource> ();
-		int ran = UnityEngine.Random.Range (0, footSteps.Length);
-		steps.clip = footSteps [ran]; 
+		steps.clip = AudioManager.RandomFootSteps(); 
 		steps.Play ();
 		//------------------------------------------------------
 		

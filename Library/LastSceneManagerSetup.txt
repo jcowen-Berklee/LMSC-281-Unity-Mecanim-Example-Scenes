@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Follow Example.unity
+- path: Assets/Crowd Simulation.unity
   isLoaded: 1
   isActive: 1
