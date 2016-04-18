@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.Audio;
+
 
 public class IdleRunJump : MonoBehaviour {
 
@@ -8,9 +8,6 @@ public class IdleRunJump : MonoBehaviour {
 	protected Animator animator;
 	public float DirectionDampTime = .25f;
 	public bool ApplyGravity = true; 
-
-	public AudioMixerSnapshot stepping;
-	public AudioMixerSnapshot still;
 
 	// Use this for initialization
 	void Start () 
@@ -45,12 +42,6 @@ public class IdleRunJump : MonoBehaviour {
 
 			animator.SetFloat ("Speed", h * h + v * v);
 			animator.SetFloat ("Direction", h, DirectionDampTime, Time.deltaTime);
-		}
-		if (Input.GetKeyDown ("w")) {
-			stepping.TransitionTo (0f);
-		}
-		if (Input.GetKeyUp ("w")) {
-			still.TransitionTo (0f);
 		}
 	}
 }

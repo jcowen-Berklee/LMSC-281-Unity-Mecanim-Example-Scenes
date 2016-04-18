@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/SplashScreen.unity
+- path: Assets/Group Triangle/Teddy Bear Bazooka.unity
   isLoaded: 1
   isActive: 1
