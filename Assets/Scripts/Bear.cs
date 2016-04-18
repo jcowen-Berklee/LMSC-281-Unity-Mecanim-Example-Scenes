@@ -16,7 +16,7 @@ using System.Collections;
 public class Bear : MonoBehaviour {
 	
 	public float AvatarRange = 25;
-    public AudioClip fall;
+    public int Sound = 0;
 
     protected Animator avatar;
 	
@@ -81,10 +81,11 @@ public class Bear : MonoBehaviour {
 			var currentState = avatar.GetCurrentAnimatorStateInfo(0);
 			var nextState = avatar.GetNextAnimatorStateInfo(0);
             //play bear dying sound
-            if (GetComponent<AudioSource>().isPlaying == false)
+            SoundManager.OneShot(0);
+            /*if (GetComponent<AudioSource>().isPlaying == false)
             {
                 GetComponent<AudioSource>().Play();
-            }
+            } */
             if (!currentState.IsName("Base Layer.Dying") && !nextState.IsName("Base Layer.Dying"))
 				avatar.SetBool("Dying", true);
         }        
