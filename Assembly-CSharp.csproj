@@ -51,7 +51,6 @@
      <Compile Include="Assets\Scripts\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Bazooka.cs" />
      <Compile Include="Assets\Scripts\Bear.cs" />
-     <Compile Include="Assets\Scripts\CrowdSound.cs" />
      <Compile Include="Assets\Scripts\Follow.cs" />
      <Compile Include="Assets\Scripts\Follow_UI.cs" />
      <Compile Include="Assets\Scripts\FootPlanting.cs" />
