@@ -16,12 +16,14 @@ using System.Collections;
 public class Bear : MonoBehaviour {
 	
 	public float AvatarRange = 25;
+    public AudioClip fall;
 
-	protected Animator avatar;
+    protected Animator avatar;
 	
 	private float SpeedDampTime = .25f;	
 	private float DirectionDampTime = .25f;	
 	private Vector3 TargetPosition = new Vector3(0,0,0);
+
 	
 	// Use this for initialization
 	void Start () 

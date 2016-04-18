@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Generic Skeleton Example.unity
+- path: Assets/Teddy Bear Bazooka.unity
   isLoaded: 1
   isActive: 1
