@@ -19,12 +19,47 @@ public class Bear : MonoBehaviour {
 	private float SpeedDampTime = .25f;	
 	private float DirectionDampTime = .25f;	
 	private Vector3 TargetPosition = new Vector3(0,0,0);
+
+
+	//perrin-----declare two private AudioSources "grunts" and breaths"
+	private AudioSource grunts;
+	private AudioSource breaths;
+
+
+
 	
 	// Use this for initialization
 	void Start () 
 	{
 		avatar = GetComponent<Animator>();
+
+		//perrin-----call the bearBreathing function *see below*
+		bearBreathing ();
+
+
+
+
+
+
 	}
+
+
+	//perrin----make a new custom function named bearBreathing to call in the start function (just for fun) 
+		void bearBreathing (){
+	
+	
+			
+			//perrin----the following three lines instantiate the AudioSource and load the desired samples of bears breathing using the AudioManager
+			//see the script "Bazooka.cs" lines 55-63 for a more detailed explanation
+			breaths = GetComponent<AudioSource> ();
+			breaths.clip = AudioManager.RandomSound (AudioManager.bearBreathing);
+			breaths.Play ();
+	
+	
+	
+	
+		}
+
     
 	void Update () 
 	{
@@ -64,6 +99,8 @@ public class Bear : MonoBehaviour {
             if (nextState.IsName("Base Layer.Dying"))
             {                
                 avatar.SetBool("Dying", false);
+
+
             }
 
         }		
@@ -77,6 +114,14 @@ public class Bear : MonoBehaviour {
 			var nextState = avatar.GetNextAnimatorStateInfo(0);
 			if (!currentState.IsName("Base Layer.Dying") && !nextState.IsName("Base Layer.Dying"))
 				avatar.SetBool("Dying", true);
+
+
+			//perrin----instantiates AudioSource to variable and loads proper samples...see the bearBreathing() function above...
+			grunts = GetComponent<AudioSource> ();
+			grunts.clip = AudioManager.RandomSound(AudioManager.bearDying);
+			grunts.Play ();
+
+
         }        
     }
 }

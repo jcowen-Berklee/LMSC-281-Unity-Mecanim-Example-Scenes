@@ -15,6 +15,9 @@ public class Bazooka : MonoBehaviour {
 	private AudioSource bazooka;
 
 
+
+
+
     private bool load = true;
 
     void OnGUI()
@@ -28,16 +31,12 @@ public class Bazooka : MonoBehaviour {
 	void Start () 
 	{
 		animator = GetComponent<Animator>();
-	
-		//get the audiosource component that is attached (which has the bazooka.wav sound file loaded into it)
-		bazooka = GetComponent<AudioSource> ();
-
-
-
-
 
 
 	}
+
+
+
 	
 	// Update is called once per frame
 	void Update () 
@@ -51,8 +50,18 @@ public class Bazooka : MonoBehaviour {
 
             if (Input.GetButton("Fire1") && fire < 0.01 && aim > 0.99)
             {
-				//if the bazooka is fired, play the sound that is stored in the referenced audioSource. 
+
+
+				//perrin----if the bazooka is fired, do the following audio work
+
+				//perrin----assign the bazooka AudioSource variable to the AudioSource game component to instantiate the AudioSource
+				bazooka = GetComponent<AudioSource> ();
+				//perrin-----assign bazooka.clip (which is the audio that will be played) to the bazookaShot array in the AudioManager script with Bernard's RandomSound function.
+				bazooka.clip = AudioManager.RandomSound(AudioManager.bazookaShot);
+
+				//play the bazooka AudioSource (which now has our desired bazooka sampled loaded into it)
 				bazooka.Play ();
+
 			
 
 
