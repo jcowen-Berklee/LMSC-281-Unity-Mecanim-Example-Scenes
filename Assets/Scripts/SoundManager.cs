@@ -4,7 +4,7 @@ using System.Collections;
 public class SoundManager : MonoBehaviour {
 
 														//with use of unity rogue-like SoundManager help
-//	public AudioSource efxSource;
+	public AudioSource efxSource;
 	public AudioSource musicSource;
 	public AudioSource ambientSource;
 	public static SoundManager instance = null;
