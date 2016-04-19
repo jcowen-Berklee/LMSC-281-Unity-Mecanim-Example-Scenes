@@ -37,16 +37,27 @@ public class TargetMatching : MonoBehaviour
 
 			if (Input.GetButton("Fire1")) animator.SetBool("Jump", true);
 
+			if (Input.GetButton ("Fire1"))
+				GetComponent<AudioSource> ().PlayDelayed(1);
+
 			if ( (state.IsName("Base Layer.JumpUp") || state.IsName("Base Layer.FullJump")) && !animator.IsInTransition(0) )
 			{
+
+
 				animator.SetBool("Jump", false);
 								
 				animator.MatchTarget(RightHand.position, RightHand.rotation, AvatarTarget.RightHand, new MatchTargetWeightMask(new Vector3(1, 1, 1), 0), animator.GetFloat("MatchStart"), animator.GetFloat("MatchEnd"));
+
 				hasJumped = true;
+		
 			}
+
+
 
 			if (hasJumped && state.normalizedTime > 1.2)
 			{
+				
+				
 				hasJumped = false;
 				Application.LoadLevel(0);
 			}

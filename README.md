@@ -3,6 +3,7 @@ Initial Project for Collaborative Project
 
 This is for our first collaborative project, to add sounds to the assigned scenes, per group.
 
+
 Group Square - Caleb (Teddy Bear Bazooka, Animator Controller, Inverse Kinematics, Target Match)
 
 Jake
@@ -26,3 +27,4 @@ Group Cross - Sam (Teddy Bear Bazooka, Skeleton, Scale Capsule, Target March)
 Maggie
 Mac
 Soojin
+

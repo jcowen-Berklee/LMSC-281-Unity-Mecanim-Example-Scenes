@@ -1,5 +1,11 @@
  /// <summary>
+/// TEAM CIRCLE
+/// Bernard
+/// Andrew
+/// Austin
+/// Jennings
 /// 
+/// Worked on this script: Bernard
 /// </summary>
 
 using UnityEngine;
@@ -19,10 +25,20 @@ public class RandomCharacters : MonoBehaviour {
 	private float SpeedDampTime = .25f;	
 	private float DirectionDampTime = .25f;	
 	private Vector3 TargetPosition = new Vector3(0,0,0);
+
+	//------Bernard-----------Initialize the AudioSource
+	private AudioSource steps;
+	//--------------------------------------------------
 	
-	// Use this for initialization
+
 	void Start () 
 	{
+		//------Bernard---------Plays random footsepts from the Array
+		steps = GetComponent<AudioSource> ();
+		steps.clip = AudioManager.RandomSound(AudioManager.footSteps); 
+		steps.Play ();
+		//------------------------------------------------------
+		
 		avatar = GetComponent<Animator>();
 	}
     
