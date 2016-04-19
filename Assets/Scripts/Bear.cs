@@ -18,6 +18,14 @@ public class Bear : MonoBehaviour {
 	public float AvatarRange = 25;
     public int Sound = 0;
 
+
+
+	public AudioClip[] bearFootSteps;						//Useful for not hard-coding too many specifics in later use of SoundManager.
+//	public AudioClip bearFootSteps1;						//Used for manual input of each AudioClip instead of using an Array
+//	public AudioClip bearFootSteps2;
+//	public AudioClip bearFootSteps3;
+	public AudioClip bearDeath;								//Bouncing off the SoundManager with function SoundManager.instance.userFunctionHere(whatNeedsToBePlacedInReturn). ~Mac
+
     protected Animator avatar;
 	
 	private float SpeedDampTime = .25f;	
@@ -74,6 +82,16 @@ public class Bear : MonoBehaviour {
         }		
 	}
 
+//	void SpecificFootSteps ()
+//	{
+//		SoundManager.instance.RandomizeSfx(bearFootSteps1,bearFootSteps2,bearFootSteps3);
+//	}
+
+	void SpecificFootSteps ()
+	{
+		SoundManager.instance.RandomizeSfx(bearFootSteps);
+	}
+
     void OnCollisionEnter(Collision collision)
     {
 		if (avatar != null)
@@ -81,13 +99,15 @@ public class Bear : MonoBehaviour {
 			var currentState = avatar.GetCurrentAnimatorStateInfo(0);
 			var nextState = avatar.GetNextAnimatorStateInfo(0);
             //play bear dying sound
-            SoundManager.OneShot(0);
+            //SoundManager.OneShot(0);
+			SoundManager.instance.PlaySingle(bearDeath);
             /*if (GetComponent<AudioSource>().isPlaying == false)
             {
                 GetComponent<AudioSource>().Play();
             } */
             if (!currentState.IsName("Base Layer.Dying") && !nextState.IsName("Base Layer.Dying"))
 				avatar.SetBool("Dying", true);
-        }        
+        }       
+
     }
 }

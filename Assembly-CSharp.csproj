@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\RandomCharacters.cs" />
      <Compile Include="Assets\Scripts\Responsive.cs" />
      <Compile Include="Assets\Scripts\ScaleCapsule.cs" />
+     <Compile Include="Assets\Scripts\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\TargetMatching.cs" />
      <Compile Include="Assets\Scripts\ThirdPersonCamera.cs" />

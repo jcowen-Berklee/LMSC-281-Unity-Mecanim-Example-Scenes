@@ -17,7 +17,6 @@ public class MineBot: MonoBehaviour {
 
 	AudioSource legs;
 
-
 	public float DirectionDampTime = .25f;
     public bool step = false;
 	int count;
@@ -32,7 +31,6 @@ public class MineBot: MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		count = 0;
 		legs = GetComponent<AudioSource>();
 		avatar = GetComponent<Animator>();
 	}
@@ -44,6 +42,20 @@ public class MineBot: MonoBehaviour {
 			bool j = Input.GetButton("Fire1");
 			float h = Input.GetAxis("Horizontal");
 			float v = Input.GetAxis("Vertical");
+
+			if (h > 0.0f | h < 0.0f)
+			{ 
+				if(!legs.isPlaying)
+				{
+					legs.Play();
+				}
+			}
+			else
+			{
+				
+				legs.Stop();
+				legs.PlayOneShot(servoSteps[0]);
+			}
 
 			avatar.SetFloat("Speed", h*h+v*v);
 			avatar.SetFloat("Direction", Mathf.Atan2(h,v) * 180.0f / 3.14159f);

@@ -18,6 +18,7 @@ public class Bazooka : MonoBehaviour {
 
 	public AudioClip[] equipUnequip;
 	public AudioClip[] footSteps;
+	public AudioClip bazookaShot;
 
 	AudioSource personalSound;
 
@@ -56,7 +57,8 @@ public class Bazooka : MonoBehaviour {
                {
                    GameObject newBullet = Instantiate(bullet, spawm.transform.position , Quaternion.Euler(0, 0, 0)) as GameObject;
                     //play bazooka fire sound
-                    GetComponent<AudioSource>().Play();
+                    //GetComponent<AudioSource>().Play();
+					SoundManager.instance.PlaySingle(bazookaShot);
 
                    Rigidbody rb = newBullet.GetComponent<Rigidbody>();
 
@@ -77,11 +79,13 @@ public class Bazooka : MonoBehaviour {
                 if (load && aim > 0.99) 
 				{ 
 					load = false; 
+					//older version from first week of collaboration, better to be used with the SoundManager bouncing.
 					personalSound.PlayOneShot(equipUnequip[0]);
 				}
 				else if (!load && aim < 0.01)				
 				{
 					load = true;
+					//same as the last comment here.
 					personalSound.PlayOneShot(equipUnequip[1]);
 				}
             }
@@ -145,8 +149,12 @@ public class Bazooka : MonoBehaviour {
         }
     }
 
-	void RunningStep(){
-		personalSound.PlayOneShot(footSteps[Random.Range(0, footSteps.Length)]);
+//	void RunningStep()
+//	{
+//		personalSound.PlayOneShot(footSteps[Random.Range(0, footSteps.Length)]);
+//	}
 
+	void SpecificFootSteps (){
+		SoundManager.instance.RandomizeSfx(footSteps);
 	}
 }
