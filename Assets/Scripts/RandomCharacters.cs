@@ -1,5 +1,11 @@
  /// <summary>
+/// TEAM CIRCLE
+/// Bernard
+/// Andrew
+/// Austin
+/// Jennings
 /// 
+/// Worked on this script: Bernard
 /// </summary>
 
 using UnityEngine;

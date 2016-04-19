@@ -1,8 +1,18 @@
-﻿using UnityEngine;
+﻿/// <summary>
+/// TEAM CIRCLE
+/// Bernard (Ducky Duc) 
+/// Andrew
+/// Austin
+/// Jennings
+/// 
+/// Worked on this script: Bernard, Andrew
+/// </summary>
+using UnityEngine;
 using System.Collections;
 
 public class AudioManager : MonoBehaviour {
 
+	//Ducky Duc---
 	public static AudioClip[] footSteps;
 
 	//perrin-----create 3 public/static AudioClip arrays with self documenting names
@@ -15,6 +25,8 @@ public class AudioManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		//Ducky Duc---AudioClip array for footsteps
 		footSteps = new AudioClip[] {
 			Resources.Load<AudioClip>("Audio/SFX/steps1"),
 			Resources.Load<AudioClip>("Audio/SFX/steps2"),
@@ -56,7 +68,7 @@ public class AudioManager : MonoBehaviour {
 
 	}
 
-	//Plays a random sound from an AudioClip array
+	//Ducky Duc---Plays a random sound from an AudioClip array
 	public static AudioClip RandomSound(AudioClip[] audioArray) {
 		int ran = UnityEngine.Random.Range (0, audioArray.Length);
 

@@ -1,3 +1,12 @@
+/// <summary>
+/// TEAM CIRCLE
+/// Bernard (Ducky Duc) 
+/// Andrew
+/// Austin
+/// Jennings
+/// 
+/// Worked on this script: Andrew
+/// </summary>
 using UnityEngine;
 using System.Collections;
 
